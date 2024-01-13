@@ -1,8 +1,9 @@
 {%extends 'base.html'%}
 {%block content%}
 <div class="col-md-6 offset-md-3">
-    <h1>Add Record</h1>
+    <h1 class="text-center">Add Record</h1>
     <form method="POST" action="{% url 'add_customer'%}">
+       
         {%csrf_token%}
         {% if form.errors%}
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -18,7 +19,14 @@
         {%endif%}
         {{ form.as_p}}
         <br />
+        <div class="text-center">
+        
+        <a href="{%url 'home'%}" class="btn btn-secondary">Back</a> 
+        
+       
         <button type="submit" class="btn btn-secondary">Add</button>
+    </div>
+           
     </form>
 </div>
 

@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.shortcuts import redirect
 from django.urls import path, include
 from rest import views
 from rest_framework.urlpatterns import format_suffix_patterns
@@ -21,6 +22,8 @@ from rest_framework.urlpatterns import format_suffix_patterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #path('',views.drink_list,name="home"),
+    path('', lambda request: redirect('website/')),
     path('website/',include('website.urls')),
     path('drinks/',views.drink_list),
     path('drinks/<int:id>',views.drink_detail),
