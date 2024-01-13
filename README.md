@@ -23,7 +23,8 @@
  - Create serializers in serializers.py to convert complex data types into native Python data types.
 ## Usage
 #### Run the development server: python manage.py runserver
-- Access the API endpoints at http://localhost:8000/drinks/.
+- Access the API endpoints at http://localhost:8000/website/.
+- for json form   API at http://localhost:8000/drinks/.
 ## Documentation
 Explore the API documentation to understand available endpoints, request methods, and data formats. Use tools like Swagger or DRF to maintain comprehensive and user-friendly documentation.
 
