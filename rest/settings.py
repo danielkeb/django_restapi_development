@@ -28,6 +28,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# settings.py
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'  # Or 'bootstrap5', or 'uni-form'
 
 # Application definition
 
@@ -41,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'website',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -120,6 +124,13 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT=587
+EMAIL_USE_TLS=True
+EMAIL_HOST_USER="altaye381@gmail.com"
+EMAIL_HOST_PASSWORD="bnwxlellhrhmcjzl"
 
 
 # Static files (CSS, JavaScript, Images)

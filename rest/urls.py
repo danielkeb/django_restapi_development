@@ -14,21 +14,27 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.shortcuts import redirect
 from django.urls import path, include
+from django.views.generic import RedirectView
 from rest import views
 from rest_framework.urlpatterns import format_suffix_patterns
-
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    #path('',views.drink_list,name="home"),
-    path('', lambda request: redirect('website/')),
-    path('website/',include('website.urls')),
-    path('drinks/',views.drink_list),
-    path('drinks/<int:id>',views.drink_detail),
-    
 
+    path('admin/', admin.site.urls, name='admin'),
+    path('accounts/login/', admin.site.urls, name='admin'),
+    path('', RedirectView.as_view(pattern_name='home', permanent=False)),
+    path('website/', include('website.urls')),
+    path('drinks/', views.drink_list),
+    path('drinks/<int:id>', views.drink_detail),
+    path('password_reset/',auth_views.PasswordResetView.as_view(),name='password_reset'),
+
+    path('password_reset/done/',auth_views.PasswordResetDoneView.as_view(),name='password_reset_done'),
+
+    path('reset/<uidb64>/<token>/',auth_views.PasswordResetConfirmView.as_view(),name='password_reset_confirm'),
+
+    path('reset/done/',auth_views.PasswordResetCompleteView.as_view(),name='password_reset_complete'),
 ]
 
-urlpatterns= format_suffix_patterns(urlpatterns)
+urlpatterns = format_suffix_patterns(urlpatterns)

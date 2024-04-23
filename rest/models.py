@@ -6,3 +6,10 @@ class Drinks(models.Model):
 
     def __str__(self):
         return f"{self.name} {self.description}"
+
+
+class User(models.Model):
+    name = models.CharField(max_length=50)
+    nn=models.CharField(max_length=100)
+    def __str__(self):
+        return f"{self.name} {self.nn}"

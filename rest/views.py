@@ -1,5 +1,6 @@
 
 from django.http import JsonResponse
+from django.shortcuts import render
 from .serializers import DrinkSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -10,7 +11,9 @@ def drink_list(request, format=None):
     if request.method == 'GET':    
         drinks = Drinks.objects.all()
         serializer = DrinkSerializer(drinks, many=True)
-        return JsonResponse({'drinks':serializer.data})
+        # print(type(serializer))
+        # return render(request,{})
+        return Response({'drinks':serializer.data})
     if request.method == 'POST':
         serializer = DrinkSerializer(data=request.data)
         if serializer.is_valid():

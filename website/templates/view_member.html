@@ -1,0 +1,88 @@
+{%extends 'base.html'%}
+{%block content%}
+{%if member_records%}
+ <div class="card">
+        <div class="card-header">
+            <strong>{{member_records.first_name}} {{member_records.last_name}}</strong>
+        </div>
+        <div class="card-body">
+            <p class="card-text">
+                <Strong>Email:</Strong>  {{member_records.email}}
+                
+            </p>
+            <p class="card-text">
+                <Strong>Address:</Strong>{{member_records.address}}
+               
+            </p>
+            <p class="card-text">
+                <Strong>Phone:</Strong> {{member_records.phone}}
+               
+            </p>
+            <p class="card-text">
+                <Strong>State:</Strong> {{member_records.state}}
+              
+            </p>
+            <p class="card-text">
+                <Strong>City:</Strong>  {{member_records.city}}
+                
+            </p>
+            <p class="card-text">
+                <Strong>Zipcode:</Strong>{{member_records.zipcode}}
+              
+            </p>
+            <p class="card-text">
+                <Strong>createdAt:</Strong>  {{member_records.createdAt}}
+                
+            </p>
+            <p class="card-text">
+                <Strong>ID:</Strong>{{member_records.id}}
+                
+            </p>
+
+            <p class="card-text">
+                <Strong>Wereda:</Strong> {{member_records.wereda}}
+               
+            </p>
+            <p class="card-text">
+                <Strong>Region:</Strong> {{member_records.region}}
+              
+            </p>
+            <p class="card-text">
+                <Strong>Zone:</Strong>  {{member_records.zone}}
+                
+            </p>
+            <p class="card-text">
+                <Strong>Kebele:</Strong>{{member_records.kebele}}
+              
+            </p>
+            <p class="card-text">
+                <Strong>Region:</Strong> {{member_records.region}}
+              
+            </p>
+            <p class="card-text">
+                <Strong>Crissing name:</Strong>  {{member_records.crissingname}}
+                
+            </p>
+            <p class="card-text">
+                <Strong>Mother name:</Strong>{{member_records.mothername}}
+              
+            </p>
+            <p class="card-text">
+                <Strong>Language:</Strong>{{member_records.language}}
+              
+            </p>
+
+
+            
+
+        </div>
+ </div>
+ <br/><br/>
+ <a href="{%url 'home'%}" class="btn btn-secondary">Back</a> 
+ <a href="{%url 'delete_record' member_records.id%}" class="btn btn-danger">Delete</a> 
+ <a href="{%url 'update_record' member_records.id%}" class="btn btn-secondary">Update</a> 
+        
+                   
+            {%endif%}
+           
+{% endblock %}
